@@ -7,7 +7,7 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    lytedev.url = "git+https://git.lyte.dev/lytedev/nix";
+    lytedev.url = "git+https://git.lyte.dev/lytedev/nix?ref=main";
     lytedev.inputs.nixpkgs.follows = "nixpkgs";
     lytedev.inputs.home-manager.follows = "home-manager";
   };
