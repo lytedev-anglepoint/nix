@@ -7,7 +7,10 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    iosevka-lyte.url = "github:lytedev-anglepoint/iosevka-lyte";
+
     lytedev.url = "git+https://git.lyte.dev/lytedev/nix?ref=main";
+    lytedev.inputs.iosevka-lyte.follows = "iosevka-lyte";
     lytedev.inputs.nixpkgs.follows = "nixpkgs";
     lytedev.inputs.home-manager.follows = "home-manager";
   };
@@ -63,6 +66,8 @@
                 };
 
                 home.pointerCursor.enable = lib.mkForce false;
+
+                home.packages = with pkgs; [ gh ];
                 # programs.ssh.enable = lib.mkForce false;
                 # programs.atuin.enable = lib.mkForce false;
               }
