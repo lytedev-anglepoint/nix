@@ -9,7 +9,7 @@
 
     iosevka-lyte.url = "github:lytedev-anglepoint/iosevka-lyte";
 
-    lytedev.url = "git+https://git.lyte.dev/lytedev/nix?ref=main";
+    lytedev.url = "git+https://git.lyte.dev/lytedev/nix";
     lytedev.inputs.iosevka-lyte.follows = "iosevka-lyte";
     lytedev.inputs.nixpkgs.follows = "nixpkgs";
     lytedev.inputs.home-manager.follows = "home-manager";
