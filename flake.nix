@@ -67,7 +67,11 @@
 
                 home.pointerCursor.enable = lib.mkForce false;
 
-                home.packages = with pkgs; [ gh ];
+                home.packages = with pkgs; [
+                  gh
+                  awscli2
+                  git
+                ];
                 # programs.ssh.enable = lib.mkForce false;
                 # programs.atuin.enable = lib.mkForce false;
               }
