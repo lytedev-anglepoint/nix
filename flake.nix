@@ -1,18 +1,17 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
 
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nix-darwin.url = "github:LnL7/nix-darwin/master";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     iosevka-lyte.url = "github:lytedev-anglepoint/iosevka-lyte";
 
-    lytedev.url = "git+https://git.lyte.dev/lytedev/nix";
+    lytedev.url = "git+https://git.lyte.dev/lytedev/nix?ref=nix-darwin";
     lytedev.inputs.iosevka-lyte.follows = "iosevka-lyte";
-    lytedev.inputs.nixpkgs.follows = "nixpkgs";
-    lytedev.inputs.home-manager.follows = "home-manager";
+    lytedev.inputs.nixpkgs-unstable.follows = "nixpkgs";
   };
 
   outputs =
@@ -31,55 +30,32 @@
       forAllSystems = inputs.nixpkgs.lib.genAttrs systems;
     in
     {
-      homeConfigurations = {
-        "daniel.flanagan" = inputs.home-manager.lib.homeManagerConfiguration {
-          pkgs =
-            (import inputs.nixpkgs { system = "aarch64-darwin"; }).extend
-              inputs.lytedev.overlays.forSelf;
-
-          modules = with inputs.lytedev.homeManagerModules; [
+      darwinConfigurations = {
+        "APT-CXWK6Q1603-665" = inputs.nix-darwin.lib.darwinSystem {
+          system = "aarch64-darwin";
+          modules = [
+            inputs.lytedev.darwinModules.default
             (
               { lib, pkgs, ... }:
               {
-                home = {
-                  stateVersion = "25.11";
-                  username = lib.mkForce "daniel.flanagan";
-                  homeDirectory = lib.mkForce "/Users/daniel.flanagan";
-                };
-                programs.home-manager.enable = true;
+                networking.hostName = "APT-CXWK6Q1603-665";
+                system.stateVersion = 6;
 
-                # install using the OS's package manager instead
-                programs.firefox.enable = false;
-                programs.ghostty.enable = false;
-
-                lyte.shell = {
-                  enable = true;
-                  learn-jujutsu-not-git.enable = true;
-                };
-                lyte.desktop = {
-                  enable = true;
-                  environment = "macos";
+                lyte = {
+                  username = "daniel.flanagan";
+                  shell.enable = true;
+                  # editableConfigFiles = true;
+                  # flakePath = "/Users/daniel.flanagan/code/nix";
                 };
 
-                programs.btop = {
-                  package = lib.mkForce pkgs.btop;
-                };
-
-                home.pointerCursor.enable = lib.mkForce false;
-
-                home.packages = with pkgs; [
+                environment.systemPackages = with pkgs; [
                   gh
                   awscli2
                   git
                 ];
-                # programs.ssh.enable = lib.mkForce false;
-                # programs.atuin.enable = lib.mkForce false;
               }
             )
-            daniel
-            default
           ];
-
         };
       };
 
