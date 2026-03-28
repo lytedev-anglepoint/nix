@@ -41,6 +41,15 @@
                 networking.hostName = "APT-CXWK6Q1603-665";
                 system.stateVersion = 6;
 
+                # Fix Go packages that fail with "-linkmode=external requires cgo" on macOS 26
+                nixpkgs.overlays = [
+                  (final: prev: {
+                    direnv = prev.direnv.overrideAttrs (old: {
+                      env = (old.env or {}) // {CGO_ENABLED = 1;};
+                    });
+                  })
+                ];
+
                 lyte = {
                   username = "daniel.flanagan";
                   shell.enable = true;
