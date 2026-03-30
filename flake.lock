@@ -1034,11 +1034,11 @@
         "zed": "zed"
       },
       "locked": {
-        "lastModified": 1774708806,
-        "narHash": "sha256-lpU5t+ugI20l8/jZtGyYFIUMyj63LMkdITBfWiznAT8=",
+        "lastModified": 1774896432,
+        "narHash": "sha256-FXJPNnBQSdivjFaka8unAdDPA7pb2a+kL7uzs+F9Ejo=",
         "ref": "nix-darwin",
-        "rev": "df691557669d1018920fb695b13ee364e1260049",
-        "revCount": 1413,
+        "rev": "41f3c96a431fba7dacf20d12db7f2f7720e04a6e",
+        "revCount": 1414,
         "type": "git",
         "url": "https://git.lyte.dev/lytedev/nix"
       },

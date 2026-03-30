@@ -41,6 +41,9 @@
                 networking.hostName = "APT-CXWK6Q1603-665";
                 system.stateVersion = 6;
 
+                # Determinate Nix manages the nix installation
+                nix.enable = false;
+
                 # Fix Go packages that fail with "-linkmode=external requires cgo" on macOS 26
                 nixpkgs.overlays = [
                   (final: prev: {
