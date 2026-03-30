@@ -4,6 +4,9 @@
 
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
 
+    deploy-rs.url = "github:serokell/deploy-rs";
+    deploy-rs.inputs.nixpkgs.follows = "nixpkgs";
+
     nix-darwin.url = "github:LnL7/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -28,6 +31,19 @@
       ];
 
       forAllSystems = inputs.nixpkgs.lib.genAttrs systems;
+
+      deployPkgs = import inputs.nixpkgs {
+        system = "aarch64-darwin";
+        overlays = [
+          inputs.deploy-rs.overlays.default
+          (final: prev: {
+            deploy-rs = {
+              inherit (prev) deploy-rs;
+              lib = inputs.deploy-rs.lib;
+            };
+          })
+        ];
+      };
     in
     {
       darwinConfigurations = {
@@ -73,6 +89,23 @@
         };
       };
 
+      deploy = {
+        nodes = {
+          work-mac = {
+            hostname = "Mac.lan";
+            remoteBuild = true;
+            interactiveSudo = true;
+            profiles.system = {
+              sshUser = "daniel.flanagan";
+              user = "root";
+              path =
+                deployPkgs.deploy-rs.lib.aarch64-darwin.activate.darwin
+                  self.darwinConfigurations."APT-CXWK6Q1603-665";
+            };
+          };
+        };
+      };
+
       formatter = forAllSystems (system: inputs.nixpkgs.legacyPackages.${system}.alejandra);
 
       checks = forAllSystems (system: {
@@ -88,6 +121,7 @@
         system:
         inputs.nixpkgs.legacyPackages.${system}.mkShell {
           inherit (outputs.checks.${system}.pre-commit-check) shellHook;
+          packages = [ inputs.deploy-rs.packages.${system}.default ];
         }
       );
     };
