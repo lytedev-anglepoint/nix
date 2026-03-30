@@ -299,6 +299,28 @@
         "type": "github"
       }
     },
+    "dns-nix": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": [
+          "lytedev",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1768143854,
+        "narHash": "sha256-E5/kyPz4zAZn/lZdvqlF83jMgCWNxmqYjjWuadngCbk=",
+        "owner": "nix-community",
+        "repo": "dns.nix",
+        "rev": "a97cf4156e9f044fe4bed5be531061000dfabb07",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "dns.nix",
+        "type": "github"
+      }
+    },
     "fenix": {
       "inputs": {
         "nixpkgs": [
@@ -559,6 +581,21 @@
       }
     },
     "flake-utils": {
+      "locked": {
+        "lastModified": 1614513358,
+        "narHash": "sha256-LakhOx3S1dRjnh0b5Dg3mbZyH0ToC9I8Y2wKSkBaTzU=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "5466c5bbece17adaab2d82fae80b46e807611bf3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_2": {
       "inputs": {
         "systems": "systems_2"
       },
@@ -576,7 +613,7 @@
         "type": "github"
       }
     },
-    "flake-utils_2": {
+    "flake-utils_3": {
       "inputs": {
         "systems": "systems_3"
       },
@@ -594,7 +631,7 @@
         "type": "github"
       }
     },
-    "flake-utils_3": {
+    "flake-utils_4": {
       "inputs": {
         "systems": "systems_5"
       },
@@ -968,7 +1005,7 @@
     },
     "lib-aggregate": {
       "inputs": {
-        "flake-utils": "flake-utils",
+        "flake-utils": "flake-utils_2",
         "nixpkgs-lib": "nixpkgs-lib"
       },
       "locked": {
@@ -1007,9 +1044,10 @@
         "deploy-rs": "deploy-rs",
         "determinate": "determinate",
         "disko": "disko",
+        "dns-nix": "dns-nix",
         "firefox-nightly": "firefox-nightly",
         "flake-compat": "flake-compat_3",
-        "flake-utils": "flake-utils_2",
+        "flake-utils": "flake-utils_3",
         "ghostty": "ghostty",
         "git-hooks": "git-hooks",
         "hardware": "hardware",
@@ -1034,11 +1072,11 @@
         "zed": "zed"
       },
       "locked": {
-        "lastModified": 1774896432,
-        "narHash": "sha256-FXJPNnBQSdivjFaka8unAdDPA7pb2a+kL7uzs+F9Ejo=",
+        "lastModified": 1774905934,
+        "narHash": "sha256-MaP2OvOiVL4XePMyhlO56Cxsl/DhJahBQHpTA5uwRhg=",
         "ref": "nix-darwin",
-        "rev": "41f3c96a431fba7dacf20d12db7f2f7720e04a6e",
-        "revCount": 1414,
+        "rev": "384cbba56fb915201c8526a33f1c43b41422550b",
+        "revCount": 1498,
         "type": "git",
         "url": "https://git.lyte.dev/lytedev/nix"
       },
@@ -1810,18 +1848,18 @@
         "crane": "crane_2",
         "fenix": "fenix",
         "flake-compat": "flake-compat_7",
-        "flake-utils": "flake-utils_3",
+        "flake-utils": "flake-utils_4",
         "liburing": "liburing",
         "nix-filter": "nix-filter",
         "nixpkgs": "nixpkgs_6",
         "rocksdb": "rocksdb"
       },
       "locked": {
-        "lastModified": 1773290705,
-        "narHash": "sha256-9I+YSshk3iY+XEVvPhqAwXVVHi/2n2BR7oiSLYhZGXM=",
+        "lastModified": 1774454989,
+        "narHash": "sha256-oYHq41XPFSIWJsJDl8/pDrTSfF2oYsnqLmAy+aXrjwo=",
         "owner": "lytedev",
         "repo": "tuwunel",
-        "rev": "7c5069f10fb899d24741d1fee68fd7bc63de73a3",
+        "rev": "433b0d8e5e31048f20be76cd4d8e1b2f1c02faaf",
         "type": "github"
       },
       "original": {
