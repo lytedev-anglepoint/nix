@@ -53,6 +53,8 @@
                   })
                 ];
 
+                users.users."daniel.flanagan".uid = 502;
+
                 lyte = {
                   username = "daniel.flanagan";
                   shell.enable = true;
