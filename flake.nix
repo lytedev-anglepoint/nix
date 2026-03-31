@@ -74,6 +74,7 @@
                 lyte = {
                   username = "daniel.flanagan";
                   shell.enable = true;
+                  desktop.enable = true;
                   # editableConfigFiles = true;
                   # flakePath = "/Users/daniel.flanagan/code/nix";
                 };
