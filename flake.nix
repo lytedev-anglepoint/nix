@@ -12,7 +12,7 @@
 
     iosevka-lyte.url = "github:lytedev-anglepoint/iosevka-lyte";
 
-    lytedev.url = "git+https://git.lyte.dev/lytedev/nix?ref=nix-darwin";
+    lytedev.url = "git+https://git.lyte.dev/lytedev/nix";
     lytedev.inputs.iosevka-lyte.follows = "iosevka-lyte";
     lytedev.inputs.nixpkgs-unstable.follows = "nixpkgs";
   };

@@ -1110,16 +1110,15 @@
         "zed": "zed"
       },
       "locked": {
-        "lastModified": 1774906958,
-        "narHash": "sha256-/pQ3HBzN7I+ueJjagdM8uKnla8qZKZ7aKeDYZwXUvho=",
-        "ref": "nix-darwin",
-        "rev": "a7f91965545bc1d05ec096e2399eef4e961d260f",
-        "revCount": 1499,
+        "lastModified": 1775105649,
+        "narHash": "sha256-1k5kR1lnR0aDcUoM2r0DLdgDUBZMUjHnPj8bW2PaEQA=",
+        "ref": "refs/heads/main",
+        "rev": "09edfeb3a6b79a48a962bbaafd13a1d8d4d2277b",
+        "revCount": 1519,
         "type": "git",
         "url": "https://git.lyte.dev/lytedev/nix"
       },
       "original": {
-        "ref": "nix-darwin",
         "type": "git",
         "url": "https://git.lyte.dev/lytedev/nix"
       }
