@@ -83,6 +83,15 @@
                   gh
                   awscli2
                   git
+
+                  # container runtime for local dev/test (e.g. `docker compose up -d`).
+                  # colima runs a Linux VM with a real Docker daemon; run `colima start`
+                  # once after switching. NOTE: lyte shell-config ships a
+                  # docker-compose->podman-compose shim on PATH, so use the
+                  # `docker compose` subcommand (works) rather than bare `docker-compose`.
+                  colima
+                  docker
+                  docker-compose
                 ];
               }
             )
