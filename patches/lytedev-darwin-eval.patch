@@ -1,0 +1,29 @@
+diff --git a/lib/modules/shared/shell-config.nix b/lib/modules/shared/shell-config.nix
+index 08487af..c33b15e 100644
+--- a/lib/modules/shared/shell-config.nix
++++ b/lib/modules/shared/shell-config.nix
+@@ -102,7 +102,6 @@ in
+             rumdl
+             sd
+             w3m
+-            wden
+             xh
+ 
+             aerc
+@@ -161,7 +160,7 @@ in
+           ".ssh/config" = "${dotfilesPath}/ssh/config";
+         };
+       }
+-      (lib.mkIf (!isDarwin) {
++      (lib.optionalAttrs (!isDarwin) {
+         services.kanidm.client.enable = true;
+         programs.nix-index.enable = true;
+         programs.command-not-found.enable = false;
+@@ -191,6 +190,7 @@ in
+             nmap
+             pciutils
+             senpai
++            wden
+             unixtools.xxd
+             usbutils
+ 
